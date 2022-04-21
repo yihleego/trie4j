@@ -4,6 +4,8 @@
 
 [Aho–Corasick](http://cr.yp.to/bib/1975/aho.pdf) 算法是 Alfred V. Aho 和 Margaret J. Corasick 在 1975 年发明的一种字符串搜索算法。它是一种字典匹配算法，可在输入文本中定位有限字符串集（字典）的元素。它同时匹配所有字符串。该算法的复杂性与字符串长度加上搜索文本的长度加上输出匹配的数量成线性关系。
 
+Go实现版本：[Trie](https://github.com/yihleego/trie)
+
 ## Usage
 
 ### 匹配所有关键词
