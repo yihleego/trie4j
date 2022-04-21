@@ -57,7 +57,8 @@ public class Trie implements Serializable {
         State state = root;
         for (int i = 0, len = text.length(); i < len; i++) {
             state = nextState(state, text.charAt(i), ignoreCase);
-            for (String keyword : state.getKeywords()) {
+            String keyword = state.getFirstKeyword();
+            if (keyword != null) {
                 return new Emit(i - keyword.length() + 1, i + 1, keyword);
             }
         }

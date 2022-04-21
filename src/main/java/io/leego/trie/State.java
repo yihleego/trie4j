@@ -16,7 +16,7 @@ public class State implements Serializable {
     private final int depth;
     private Map<Character, State> success;
     private State failure;
-    private Set<String> keywords;
+    private TreeSet<String> keywords;
 
     public State(int depth) {
         this.depth = depth;
@@ -100,6 +100,10 @@ public class State implements Serializable {
 
     public Set<String> getKeywords() {
         return keywords != null ? keywords : Collections.emptySet();
+    }
+
+    public String getFirstKeyword() {
+        return keywords != null && keywords.size() > 0 ? keywords.first() : null;
     }
 
     public State getFailure() {
