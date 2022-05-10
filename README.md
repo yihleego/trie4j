@@ -1,6 +1,6 @@
 # Trie4j
 
-A Aho-Corasick algorithm based string-searching utility for Java. It supports tokenization, ignoring case, replacing text. So you can use it to find keywords in an article, filter sensitive words, etc.
+An Aho-Corasick algorithm based string-searching utility for Java. It supports tokenization, ignoring case, replacing text. So you can use it to find keywords in an article, filter sensitive words, etc.
 
 Implemented in Go：[Trie](https://github.com/yihleego/trie)
 
