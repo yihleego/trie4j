@@ -21,7 +21,7 @@ Go实现版本：[Trie](https://github.com/yihleego/trie)
 ### 匹配所有关键词
 
 ```java
-Trie trie = Trie.builder().addKeywords("雨疏", "风骤", "残酒", "卷帘人", "知否").build();
+Trie trie = new Trie("雨疏", "风骤", "残酒", "卷帘人", "知否");
 Emits emits = trie.findAll("昨夜雨疏风骤，浓睡不消残酒。试问卷帘人，却道海棠依旧。知否，知否？应是绿肥红瘦。");
 ```
 
@@ -32,7 +32,7 @@ Emits emits = trie.findAll("昨夜雨疏风骤，浓睡不消残酒。试问卷�
 ### 匹配首个关键词
 
 ```java
-Trie trie = Trie.builder().addKeywords("雨疏", "风骤", "残酒", "卷帘人", "知否").build();
+Trie trie = new Trie("雨疏", "风骤", "残酒", "卷帘人", "知否");
 Emit emit = trie.findFirst("昨夜雨疏风骤，浓睡不消残酒。试问卷帘人，却道海棠依旧。知否，知否？应是绿肥红瘦。");
 ```
 
@@ -43,7 +43,7 @@ Emit emit = trie.findFirst("昨夜雨疏风骤，浓睡不消残酒。试问卷�
 ### 匹配所有关键词 忽略大小写
 
 ```java
-Trie trie = Trie.builder().addKeywords("poetry", "TRANSLATION").build();
+Trie trie = new Trie("poetry", "TRANSLATION");
 Emits emits = trie.findAllIgnoreCase("Poetry is what gets lost in translation.");
 ```
 
@@ -54,7 +54,7 @@ Emits emits = trie.findAllIgnoreCase("Poetry is what gets lost in translation.")
 ### 匹配首个关键词 忽略大小写
 
 ```java
-Trie trie = Trie.builder().addKeywords("poetry", "TRANSLATION").build();
+Trie trie = new Trie("poetry", "TRANSLATION");
 Emit emit = trie.findFirstIgnoreCase("Poetry is what gets lost in translation.");
 ```
 
@@ -65,7 +65,7 @@ Emit emit = trie.findFirstIgnoreCase("Poetry is what gets lost in translation.")
 ### 切分词
 
 ```java
-Trie trie = Trie.builder().addKeywords("溪亭", "归路", "藕花", "争渡").build();
+Trie trie = new Trie("溪亭", "归路", "藕花", "争渡");
 Emits emits = trie.findAllIgnoreCase("常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。");
 List<Token> tokens = emits.tokenize();
 ```
@@ -77,7 +77,7 @@ List<Token> tokens = emits.tokenize();
 ### 替换关键词
 
 ```java
-Trie trie = Trie.builder().addKeywords("0元", "砍一刀", "免费拿", "免费领").build();
+Trie trie = new Trie("0元", "砍一刀", "免费拿", "免费领");
 Emits emits = trie.findAllIgnoreCase("我正在参加砍价，砍到0元就可以免费拿啦。亲~帮我砍一刀呗，咱们一起免费领好货。");
 String result1 = emits.replaceWith("*");
 String result2 = emits.replaceWith("@#$%^&*");
