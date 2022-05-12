@@ -3,6 +3,7 @@ package io.leego.trie;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -163,6 +164,19 @@ public class TrieTests {
         equalsEmits(emits2, emits3);
     }
 
+    @Test
+    public void testEmoji() {
+        // The length of emoji is 2.
+        log("🐼", " length: ", "🐼".length());
+        equalsLength("🐼", 2);
+        String text = "I love 🐼 very much.";
+        Trie trie = new Trie("🐼", "🐻");
+        Emits emits = trie.findAll(text, false);
+        log(emits);
+        equalsEmit(emits.get(0), 7, 9, "🐼");
+        equalsSize(emits, 1);
+    }
+
     public void equalsEmit(Emit emit, int begin, int end, String kw) {
         Assertions.assertEquals(emit, new Emit(begin, end, kw));
     }
@@ -196,12 +210,12 @@ public class TrieTests {
         Assertions.assertEquals(s1, s2);
     }
 
-    public void equalsSize(Emits emits, int size) {
-        Assertions.assertEquals(emits.size(), size);
+    public void equalsSize(Collection<?> c, int size) {
+        Assertions.assertEquals(c.size(), size);
     }
 
-    public void equalsSize(List<Token> tokens, int size) {
-        Assertions.assertEquals(tokens.size(), size);
+    public void equalsLength(String s, int size) {
+        Assertions.assertEquals(s.length(), size);
     }
 
     public void log(Object... objects) {
